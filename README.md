@@ -7,10 +7,25 @@
 
 **Цель на данный коммит**:
 
-- Создание package.json файла
-- Установка webpack и webpack-cli в dev зависимость (devDependens)
+- Добавление index.js и content.js в папку /src
+- Написание просто кода с импортом content.js в index.js
+- Обновление package.json для вызова webpack
+- Запуск webpack для сборки пакета(**bundle**) проекта из папки /src
+- Просмотр пакета(**bundle**) в /dist
 
 **Теория на данный коммит**:
 
-- `npm init -y`
-- `npm install webpack webpack-cli --save-dev`
+- Для того что запустить webpack нужно в package.json добавить `"scripts: {build: "webpack"}`
+- Запуск webpack сборки `npm run build`. Результат сборки:
+
+```javascript
+// /dist/main.js
+
+// Видим что webpack собрал два файла(index.js и content.js) в один файл main.js
+// Он еще минифицирован, но здесь для читаемости примера оставил так
+
+(() => {
+  "use strict";
+  console.log("index.js file - Hello world");
+})();
+```
