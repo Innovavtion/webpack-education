@@ -1,5 +1,7 @@
 // module nodejs для корректного обрабатывния путей
 const path = require("path");
+// Плагин для работы с html
+const HtmlWebpackPlugin = require("html-webpack-plugin");
 
 module.exports = (env) => {
   return {
@@ -24,5 +26,12 @@ module.exports = (env) => {
       // Отчищение старых файлов сборки в папке
       clean: true,
     },
+
+    plugins: [
+      // Подключение плагина для работы с html
+      new HtmlWebpackPlugin({
+        template: path.resolve(__dirname, "public", "index.html"),
+      }),
+    ],
   };
 };
